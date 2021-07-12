@@ -104,3 +104,24 @@ class CoupureAction(Action):
             dispatcher.utter_message(template="utter_ask_prb_regle")
             return []
 
+class ReclamationAction(Action):
+    def name(self) -> Text:
+        return "action_reclamation_enregistre"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            fichier=open("actions/slots.json")
+            dict=json.load(fichier)
+            now=datetime.now()
+
+            phone = tracker.get_slot("phone_number")
+            marque= tracker.get_slot("marque")
+            type_coupure=tracker.get_slot("type_coupure")
+            
+            response ={"phone_number":phone,"marque":marque,"type_coupure":type_coupure}
+            dict['date reclamation:'+str(now)]=response
+            with open("actions/slots.json","w") as outfile:
+                json.dump(dict,outfile)
+            dispatcher.utter_message(template="utter_reclamation_enregistre")
+            return [AllSlotsReset()]
