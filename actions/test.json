@@ -1,0 +1,13 @@
+[{
+    "phoneNumber":"71000000",
+    "etat":"active"
+  }, {
+    "phoneNumber":"71000001",
+    "etat":"active"
+  },{
+    "phoneNumber":"7100003",
+    "etat":"non-paiement"
+  }, {
+    "phoneNumber":"71000004",
+    "etat":"non-paiement"
+  }]
