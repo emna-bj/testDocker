@@ -55,13 +55,8 @@ class TestLenteurAction(Action):
             return []
         elif number_site=="plusieurs sites":
             dispatcher.utter_message(template="utter_ask_test_appareil") 
-            #number_appareil = tracker.get_slot('number_appareil')
-            #if number_appareil=="plusieurs appareils":
-                #dispatcher.utter_message(template="utter_ask_check_lenteur")
             return []
-#            else:
-#                dispatcher.utter_message(text="Donc le dysfonctionnement vient de l'appareil en question.")
-#                return []
+           
 
 class ConfigAction(Action):
     def name(self) -> Text:
