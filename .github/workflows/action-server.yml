@@ -1,0 +1,24 @@
+name: rasa and  rasa-sdk test
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-rasa-sdk:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        dockerfile: Dockerfile
+    - name: Docker login
+      run:  |
+        docker login -u emnabj-p emna 2020
+    - name: Build and push Docker image
+      run: docker build -t emnabj/rasa-sdk-app:v0 .
+    - name: Docker push
+      run: docker push emnabj/rasa-sdk-app:v0
