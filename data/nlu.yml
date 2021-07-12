@@ -1,0 +1,313 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - Bonjour
+    - hi
+    - salut
+    - coucou
+    - hey
+    - cc
+    - bjr
+    - bon jour
+    - slt
+    - bonsoir
+    - bonjour
+- intent: goodbye
+  examples: |
+    - au revoir
+    - bye bye
+    - bye
+    - à bientot
+    - à plus tard
+    - à plus
+    - a+
+    - trés bientot
+    - à la prochaine
+    - à trés vite
+- intent: affirm
+  examples: |
+    - yes
+    - yep
+    - yap
+    - ok
+    - ah ok
+    - okk
+    - yesss
+    - k
+    - yeah
+    - yah 
+    - wi 
+    - si 
+    - done
+    - oui
+    - effectivement
+    - c'est ça
+    - exactement
+    - absolument
+    - totalement
+    - certainement
+    - évidemment
+    - surement
+- intent: deny
+  examples: |
+    - no
+    - non
+    - neh
+    - nah 
+    - nooo
+    - no!
+    - nope
+    - nop
+    - je ne crois pas
+    - ce n'est pas ça
+    - nn
+    - pas vraiment
+    - pas du tout
+    - absolument pas
+    - jamais
+- intent: thank
+  examples: |
+    - merci
+    - parfait
+    - c'est réglé
+    - good 
+    - c bon 
+    - c'est bon 
+    - ça marche 
+    - fonctionne
+    - ca fonctionne  
+- intent: problemeCommercial
+  examples: |
+    - j'ai un probléme commercial
+    - c'est un probleme commercial
+    - offres commerciales
+    - commercial
+- intent: problemeAutres
+  examples: |
+    - autres
+    - j'ai un autre probléme
+- intent: problemeTechnique
+  examples: |
+    - j'ai un probléme technique
+    - technique
+    - des problemes techniques 
+    - pannes techniques 
+    - panne technique
+    - panne réseau
+    - je veux Signaler un problème technique
+    - déclaration problème technique
+    - j'ai un soucie technique 
+- intent: coupure
+  examples: |
+    - probléme coupure internet 
+    - un probléme de coupure de connexion
+    - j'ai un problem de connexion internet
+    - probléme de coupure de connexion
+    - pourquoi la connexion est coupée? 
+    - comment rétablir ma connexion? 
+- intent: pas_de_connexion
+  examples: |
+    - la connexion ne marche plus
+    - la connexion est coupée
+    - je n'ai plus de connexion
+    - je n'est plus d'internet
+    - connexion coupé
+    - plus de connexion 
+    - pas de connexion
+    - aucune connexion internet
+    - no connexion
+    - no internet
+    - pas d'internet
+    - je n'est pas de connexion internet
+    - l'internet ne matche plus
+    - pas de réseau Internet
+    - connexion inexistante
+    - ma connexion internet adsl ne marche pas
+- intent: micro_coupure
+  examples: |
+    - micro coupure de connexion internet
+    - probléme de mini-coupure de connexion
+    - Une connexion qui défaille en permanence
+    - mini coupure du réseau Internet
+    - ma connexion est souvant interrompue
+    - déconnexion fréquente d'internet
+    - déconnexion multiple d'internet
+    - plusieurs déconnexion d'internet
+    - déconnexion fréquente d'internet
+    - connexion instable
+    - j'ai des micro-coupures 
+    - internet instable
+    - j'ai souvent des mini-coupure
+    - l'internet coupe souvant
+    - une connexion avec mini coupure
+    - Coupures internet régulières
+    - des micros coupure d'internet
+    - j'ai un probléme de micro-coupur
+    - j'ai plusieurs coupures de connexion fréquament
+    - le réseau internet coupe souvant 
+    - micros coupures fréquentes
+- intent: etat_voyant
+  examples: |
+    - le voyant power est [allumé en rouge] {"entity": "etat_voyant_power", "value": "rouge"}
+    - allumé avec la [couleur rouge] {"entity": "etat_voyant_power", "value": "rouge"}
+    - le bouton power est en [rouge] {"entity": "etat_voyant_power", "value": "rouge"}
+    - [rouge] {"entity": "etat_voyant_power", "value": "rouge"} 
+    - [vert} {"entity": "etat_voyant_power", "value": "vert"} 
+    - le bouton est en [vert] (etat_voyant_power)
+    - le voyant est [éteint] (etat_voyant_power)
+    - [éteint] {"entity": "etat_voyant_power", "value": "éteint"} 
+    - [n'est pas allumé] {"entity": "etat_voyant_power", "value": "éteint"} 
+    - le voyant power [n'est pas allumé] (etat_voyant_power)
+    - le voyant power [ne marche pas] {"entity": "etat_voyant_power", "value": "éteint"} 
+
+- intent: lenteur
+  examples: |
+    - un débit de chargement anormalement lent
+    - lenteur du chargement des pages
+    - j'au un probléme de lenteur d'internet
+    - téléchargement lent 
+    - le chargement des sites est lent 
+    - débit de chargement trés faible 
+    - lenteur de connexion internet 
+    - lenteur de site internet  
+    - ralentissements
+    - j'ai un ralentissement au niveau de la connexion
+    - impossibilité de se connecter à certains sites
+    - impossible d'accéder aux sites
+    - la connexion buge
+    - connexion tres lente
+    - lente connexion
+    - la connexion buge
+    - les sites marche en ralenti
+    - les sites sont lents
+    - débit faible
+    - le débit d'internet est trés lent 
+    - j'ai un faible débit
+    - la connexion est trés faible
+    - pfaible connexion
+    - débit internet instable
+    - débit non stable
+    - faible réseau
+    - connexion marche en ralentie
+    - comment corriger le lenteur d'internet? 
+    - comment tester le débit internet? 
+- intent: wifi
+  examples: |
+    - probléme de wifi
+    - j'ai un probléme de wifi
+    - mon wifi ne fonctionne pas
+    - wifi ne fonction plus
+    - plus de wifi
+    - wifi ne marche pas
+    - pas de wifi
+    - probléme wifi
+    - connexion Wi-Fi qui disparaît complètement
+    - wifi ne s'affiche pas 
+    - le wifi n'est pas affiché
+    - wifi désactivé 
+    - comment récupérer le wifi? 
+- intent: affirm_tonalite
+  examples: |
+    - ma ligne telephonique fixe marche
+    - ma ligne telephonique est bonne 
+    - la ligne est bonne 
+    - la tonalite est bonne
+    - il ya la tonalité
+    - j'ai la tonalité sur mon téléphone fixe
+    - le téléphone marche bien
+- intent: deny_tonalite
+  examples: |
+    - je n'ai pas de tonalité
+    - la tonalité ne fonctionne plus
+    - aucune tonalité 
+    - je n'est pas de tonalité sur mon fixe
+    - plus de tonalité sur ma ligne téléphonique
+    - pas de tonalité téléphone fixe
+    - téléphone sans tonalité
+    - téléphone ne fonctionne pas
+- intent: affirm_parasite
+  examples: |
+    - j'ai des parasites au niveau de ma ligne téléphonique 
+    - Bruits sur la ligne 
+    - ligne parasitée
+    - bruit parasite sur la tonalité de la ligne 
+    - parasite sur le téléphone 
+    - ma ligne est parasité
+    - ma ligne adsl est parasité
+    - ligne téléphonique perturbé
+    - j'entend des parasites sur la ligne 
+- intent: inform
+  examples: |
+    - mon numéro de téléphone est [71396171] (phone_number)
+    - mon num adsl est [71654789] (phone_number)
+    - numero tél [71623005] (phone_number)
+    - [71623005] (phone_number)
+    - voila mon num [71623005] (phone_number)
+    - c'est mon numéro [71623005] (phone_number)
+    - c mon num [71623005] (phone_number)
+    - tél [71623005] (phone_number)
+    - [71623005] (phone_number)
+    - [71498380](phone_number)
+    - [71984874](phone_number)
+    - [un seul site] est lent{"entity": "number_site", "value": "un seul site"}
+    - [un site] {"entity": "number_site", "value": "un seul site"}
+    - [1 site] {"entity": "number_site", "value": "un seul site"}
+    - [plusieurs sites]{"entity": "number_site", "value": "plusieurs sites"}
+    - [plusieur site] {"entity": "number_site", "value": "plusieurs sites"}
+    - [tous les sites]{"entity": "number_site", "value": "plusieurs sites"}
+    - [tout les sites] sont lents {"entity": "number_site", "value": "plusieurs sites"}
+    - [un seul appareil]{"entity": "number_appareil", "value": "un seul appareil"}
+    - [un seul]{"entity": "number_appareil", "value": "un seul appareil"}
+    - [1 appareil]{"entity": "number_appareil", "value": "un seul appareil"}
+    - [plusieurs appareils]{"entity": "number_appareil", "value": "plusieurs appareils"}
+    - [plusieur appareil]{"entity": "number_appareil", "value": "plusieurs appareils"}
+    - [tous les appareils]{"entity": "number_appareil", "value": "plusieurs appareils"}
+- intent: marqueModem
+  examples: |
+    - le modèle de mon modem est [huawei]{"entity": "marque", "value": "huawei"}
+    - mon modéme est [tp-link]{"entity": "marque", "value": "tp-link"}
+    - la marque de mon modéme [sagem]{"entity": "marque", "value": "sagem"}
+    - c'est un modem [tp link]{"entity": "marque", "value": "tp-link"}
+    - modem [thomson]{"entity": "marque", "value": "thomson"}
+    - [sagem]{"entity": "marque", "value": "sagem"}
+    - [dlink]{"entity": "marque", "value": "dlink"}
+    - [huawei]{"entity": "marque", "value": "huawei"}
+    - j'ai un modem [dlink]{"entity": "marque", "value": "dlink"}
+    - un modem [d link]{"entity": "marque", "value": "dlink"}
+    - mon modem est [huawei]{"entity": "marque", "value": "huawei"}
+    - c la marque [huawei]{"entity": "marque", "value": "huawei"}
+- intent: Typeequipement
+  examples: |
+    - j'utilise un [repeteur wifi]{"entity": "equipement", "value": "épéteur wifi"}
+    - j'utilise un [répéteur wifi]{"entity": "equipement", "value": "épéteur wifi"}
+    - c'est un [épéteur wifi]{"entity": "equipement", "value": "épéteur wifi"}
+    - je suis connécté avec un [point d'accès]{"entity": "equipement", "value": "point d'accès"}
+    - je connecte avec un [modem]{"entity": "equipement", "value": "modem"}
+    - avec [modem]{"entity": "equipement", "value": "modem"}
+    - l'équipement que j'utilise est un [modem]{"entity": "equipement", "value": "modem"}
+    - avec [épéteur wifi]{"entity": "equipement", "value": "épéteur wifi"}
+    - je suis connété avec un [modem]{"entity": "equipement", "value": "modem"}
+- regex: phone_number
+  examples: |
+    - ^[7]\d{7}
+- synonym: 'un seul'
+  examples: |
+    - uniquement 1
+    - 1
+- synonym: 'plusieurs sites'
+  examples: |
+    - plusieurs
+    - tous les sites
+- synonym: 'micro-coupures'
+  examples: |
+    - micro coupure
+    - mini coupure
+    - mini_coupure
+    - fréquente
+    - instable
+- synonym: 'interrompue'
+  examples: |
+    - coupé
+    - pas de connexion

@@ -1,0 +1,310 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- thank:
+    use_entities: true
+- problemeCommercial:
+    use_entities: true
+- problemeAutres:
+    use_entities: true
+- problemeTechnique:
+    use_entities: true
+- coupure:
+    use_entities: true
+- pas_de_connexion:
+    use_entities: true
+- etat_voyant:
+    use_entities: true
+- lenteur:
+    ignore_entities:
+    - number_appareil
+- micro_coupure:
+    use_entities: true
+- affirm_tonalite:
+    use_entities: true
+- deny_tonalite:
+    use_entities: true
+- affirm_parasite:
+    use_entities: true
+- wifi:
+    ignore_entities:
+    - equipement
+- inform:
+    use_entities:
+    - phone_number
+    - number_appareil
+    - number_site
+- marqueModem:
+    use_entities:
+    - marque
+- Typeequipement:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
+entities:
+- phone_number
+- number_site
+- number_appareil
+- equipement
+- marque
+- etat_voyant_power
+- etat_voyant_adsl
+- type_coupure
+- etat_tonalite
+slots:
+  phone_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  number_site:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+    values:
+    - un seul site
+    - plusieurs sites
+  number_appareil:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+    values:
+    - un seul appareil
+    - plusieurs appareils
+  cable:
+    type: rasa.shared.core.slots.BooleanSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  equipement:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+    values:
+    - point daccès
+    - modem
+    - répéteur wifi
+  marque:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+    values:
+    - tp-link
+    - sagem
+    - thomson
+    - dlink
+    - huawei
+  etat_voyant_power:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+    values:
+    - rouge
+    - vert
+    - éteint
+  etat_voyant_adsl:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+    values:
+    - éteint
+    - vert
+    - clignote en vert
+  type_coupure:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+    values:
+    - mini_coupure
+    - pas de connexion
+  etat_tonalite:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+    values:
+    - no_tonalite
+    - yes_tonalite
+responses:
+  utter_greet:
+  - text: bonjour! je suis votre supperbot
+  utter_ask_type_prb:
+  - buttons:
+    - payload: /problemeCommercial
+      title: commercial
+    - payload: /problemeTechnique
+      title: technique
+    - payload: /problemeAutres
+      title: autres
+    text: Vous pouvez discuter avec moi ou choisir une rubrique spécifique ?
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_ask_phone:
+  - text: |-
+      quel est votre numéro d'abonnement ou votre numéro de séquence svp ? 
+       le numéro d'abonnement est le numéro  de votre ligne téléphonique (exp: 7XXXXXXX)
+  utter_ask_nature_prb_technique:
+  - buttons:
+    - payload: /coupure
+      title: coupure
+    - payload: /wifi
+      title: wifi
+    - payload: /lenteur
+      title: lenteur
+    text: Pouvez-vous m'en dire d'avantage sur la nature de votre probléme technique?
+  utter_ask_test_site:
+  - buttons:
+    - payload: '/inform{{"number_site": "plusieurs sites"}}'
+      title: plusieurs sites
+    - payload: '/inform{{"number_site": "un seul site"}}'
+      title: un seul site
+    text: |-
+      Veuillez tester votre navigation sur plusieurs sites internet. 
+       Alors apres le test ! Un seul ou tous les sites sont touchés par la lenteur?
+  utter_ask_test_appareil:
+  - buttons:
+    - payload: '/inform{{"number_appareil": "plusieurs appareils"}}'
+      title: plusieurs appareils
+    - payload: '/inform{{"number_appareil": "un seul appareil"}}'
+      title: un seul appareil
+    text: |-
+      Dans ce cas, Veuillez effectuer un test de navigation avec un autre appareil.
+       Alors apres le test ! Un seul ou plusieurs appareils sont touchés par la lenteur?
+  utter_ask_check_lenteur:
+  - text: Si vous êtes connecté en mode wifi, veuillez brancher votre ordinateur au modem avec un câble Ethernet puis testez de nouveau la connexion sur plusieurs sites.
+  utter_lenteur_non_regle:
+  - text: Fermez toutes les applications en cours d'exécution dans votre ordinateur et testez votre connexion pendant des différents moments de la journée sur , <a target='_blank' href='http://topnetunis.speedtest.net'>http://topnetunis.speedtest.net</a>
+  utter_prb_appareil:
+  - text: Donc le dysfonctionnement vient de l'appareil en question.
+  utter_ask_equipement:
+  - buttons:
+    - payload: '/Typeequipement{{"equipement": "modem"}}'
+      title: modem
+    - payload: '/Typeequipement{{"equipement": "répéteur wifi"}}'
+      title: wifi
+    - payload: '/Typeequipement{{"equipement": "point daccès"}}'
+      title: point d'accès
+    text: Qu’elle est le type de votre équipement ? (Modem, répéteur, point d’accès)
+  utter_ask_marque_modem:
+  - buttons:
+    - payload: '/marqueModem{{"marque": "tp-link"}}'
+      title: tp-link
+    - payload: '/marqueModem{{"marque": "thomson"}}'
+      title: thomson
+    - payload: '/marqueModem{{"marque": "sagem"}}'
+      title: sagem
+    - payload: '/marqueModemmarque{{"marque": "dlink"}}'
+      title: dlink
+    - payload: '/marqueModem{{"marque": "huawei"}}'
+      title: huawei
+    text: Quelle est la marque de votre modem?
+  utter_ask_check_modem:
+  - text: |-
+      Merci de : 
+
+       - Placer votre modem dans un endroit ouvert à environ 1m50 du sol près de la prise électrique et téléphonique. 
+
+       - Éloigner votre modem du micro-ondes en marche, téléphones fixes sans fil, ligne électrique à haute tension et certains systèmes de télésurveillance ou de vidéosurveillance.
+
+       - Allumer votre ordinateur, smartphone ou tablette et s'assurer que le wifi est activé.
+
+       - Vérifier que le wifi du modem est activé ( le voyant Wlan s'allume en vert fixe ou clignote)./n
+       
+       Ceci a t-il résolu votre souci ? [lien](https://www.topnet.tn/u_p_l_d/documents/configuration-huawei-hg532e-sur-le-reseau-ip-pdf_03732750014623669845729f3085b26a.pdf)
+       
+  utter_solution_wifi_pointacces:
+  - text: 'Merci de suivre  les étapes mentionné au niveau de lien suivant. '
+  utter_ask_type_coupure:
+  - buttons:
+    - payload: '/pas_de_connexion{{"type_coupure": "pas de connexion"}}'
+      title: pas de connexion
+    - payload: '/micro_coupure{{"type_coupure": "mini_coupure"}}'
+      title: mini_coupure
+    text: Est ce que vous avez des coupures fréquentes(déconnexion ou mini coupures) ou vous n'avez plus de connexion ?
+  utter_ask_etat_tonalite:
+  - buttons:
+    - payload: '/deny_tonalite{{"etat_tonalite": "no_tonalite"}}'
+      title: non
+    - payload: '/affirm_tonalite{{"etat_tonalite": "yes_tonalite"}}'
+      title: oui
+    text: Avez-vous de la tonalité sur votre appareil téléphonique?
+  utter_test_tonalite:
+  - text: Vérifiez le bon raccordement du téléphone à la prise murale sinon, essayez de brancher un autre téléphone.
+  utter_ask_parasite:
+  - buttons:
+    - payload: /deny
+      title: non
+    - payload: /affirm
+      title: oui
+    text: Est ce que vous avez des parasites sur votre appareil téléphonique ?
+  utter_deny_parasite:
+  - text: "*Vérifiez le branchement du filtre ADSL : Il est nécessaire de brancher un filtre ADSL sur chacune des prises téléphoniques utilisées. *Utilisez un câble  téléphonique de qualité et de longueur inférieure à 5 mètres. *Évitez d'installer les câbles téléphoniques à proximité des câbles électriques. *Enlevez le filtre, branchez le modem directement sur la prise téléphonique et testez votre connexion."
+  utter_affirm_parasite:
+  - text: Les fils peuvent être humides,usés ou mal branchés. Vérifiez tous les fils téléphoniques ou raccordements.
+  utter_ask_etat_voyant_power:
+  - buttons:
+    - payload: '/etat_voyant{{"etat_voyant_power": "rouge"}}'
+      title: rouge
+    - payload: '/etat_voyant{{"etat_voyant_power": "éteint"}}'
+      title: éteint
+    - payload: '/etat_voyant{{"etat_voyant_power": "vert"}}'
+      title: vert
+    text: Quel est l'état du voyant Power(éteint, rouge, ou vert) ?
+  utter_ask_etat_voyant_adsl:
+  - buttons:
+    - payload: '/etat_voyant{{"etat_voyant_adsl": "rouge"}}'
+      title: rouge
+    - payload: '/etat_voyant{{"etat_voyant_adsl": "clignote en vert"}}'
+      title: clignote en vert
+    - payload: '/etat_voyant{{"etat_voyant_adsl": "vert"}}'
+      title: vert
+    text: Est-ce que le deuxième voyant après Power est éteint allumé en vert ou clignote en vert ?
+  utter_ask_prb_regle:
+  - text: Ceci a t-il résolu votre souci ?
+  utter_reclamation_enregistre:
+  - text: votre réclamation a été enregistré avec succés
+  utter_out_prb:
+  - text: je suis désolé, je ne suis pas en mesure de vous répondre sur ce type de probléme , je vous invite à consulter l'un de nos boutique.
+  utter_ask_rephrase:
+  - buttons:
+    - payload: /problemeCommercial
+      title: commercial
+    - payload: /problemeTechnique
+      title: technique
+    - payload: /problemeAutres
+      title: autres
+    text: Je ne peux pas comprendre ce message pour l'instant, Je vous prie de reformuler votre demande ou choisir une rubrique spécifique ?
+  utter_default:
+  - text: je suis désolé , je ne peux pas vous comprendre
+  utter_goodbye:
+  - text: aurevoir ! n'hésitez à me contacter au cas de probléme
+  utter_welcom:
+  - text: je suis ravis d'avoir pu vous aider. merci pour votre confiance
+actions:
+- action_check_phone
+- action_check_lenteur
+- action_prb_wifi
+- action_config_modem
+- action_check_voyant_power
+- action_reclamation_enregistre
+forms: {}
+e2e_actions: []

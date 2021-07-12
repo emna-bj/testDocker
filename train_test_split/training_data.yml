@@ -1,0 +1,277 @@
+version: "2.0"
+nlu:
+- intent: problemeAutres
+  examples: |
+    - autres
+- intent: problemeCommercial
+  examples: |
+    - c'est un probleme commercial
+    - j'ai un probléme commercial
+    - commercial
+- intent: coupure
+  examples: |
+    - comment rétablir ma connexion?
+    - j'ai un problem de connexion internet
+    - probléme coupure internet
+    - probléme de coupure de connexion
+    - pourquoi la connexion est coupée?
+- intent: affirm_tonalite
+  examples: |
+    - ma ligne telephonique fixe marche
+    - la ligne est bonne
+    - le téléphone marche bien
+    - la tonalite est bonne
+    - ma ligne telephonique est bonne
+    - il ya la tonalité
+- intent: deny_tonalite
+  examples: |
+    - je n'est pas de tonalité sur mon fixe
+    - téléphone sans tonalité
+    - pas de tonalité téléphone fixe
+    - je n'ai pas de tonalité
+    - plus de tonalité sur ma ligne téléphonique
+    - aucune tonalité
+- intent: thank
+  examples: |
+    - merci
+    - ca fonctionne
+    - fonctionne
+    - c'est bon
+    - parfait
+    - ça marche
+    - c'est réglé
+- intent: problemeTechnique
+  examples: |
+    - technique
+    - panne réseau
+    - je veux Signaler un problème technique
+    - des problemes techniques
+    - j'ai un probléme technique
+    - pannes techniques
+    - j'ai un soucie technique
+    - panne technique
+- intent: affirm_parasite
+  examples: |
+    - j'entend des parasites sur la ligne
+    - parasite sur le téléphone
+    - ma ligne est parasité
+    - bruit parasite sur la tonalité de la ligne
+    - ligne téléphonique perturbé
+    - ma ligne adsl est parasité
+    - j'ai des parasites au niveau de ma ligne téléphonique
+- intent: Typeequipement
+  examples: |
+    - avec [épéteur wifi](equipement)
+    - je suis connécté avec un [point d'accès](equipement)
+    - je connecte avec un [modem](equipement)
+    - j'utilise un [repeteur wifi]{"entity": "equipement", "value": "\u00e9p\u00e9teur wifi"}
+    - je suis connété avec un [modem](equipement)
+    - j'utilise un [répéteur wifi]{"entity": "equipement", "value": "\u00e9p\u00e9teur wifi"}
+    - avec [modem](equipement)
+- intent: goodbye
+  examples: |
+    - à bientot
+    - trés bientot
+    - à la prochaine
+    - bye bye
+    - bye
+    - à plus tard
+    - à plus
+    - au revoir
+- intent: greet
+  examples: |
+    - bonsoir
+    - coucou
+    - slt
+    - bjr
+    - Bonjour
+    - cc
+    - hi
+    - bonjour
+    - bon jour
+- intent: etat_voyant
+  examples: |
+    - [n'est pas allumé] {"entity": "etat_voyant_power", "value": "éteint"}
+    - le bouton est en [vert] (etat_voyant_power)
+    - [éteint] {"entity": "etat_voyant_power", "value": "éteint"}
+    - le voyant est [éteint] (etat_voyant_power)
+    - le voyant power est [allumé en rouge] {"entity": "etat_voyant_power", "value": "rouge"}
+    - [rouge] {"entity": "etat_voyant_power", "value": "rouge"}
+    - le voyant power [ne marche pas] {"entity": "etat_voyant_power", "value": "éteint"}
+    - le voyant power [n'est pas allumé] (etat_voyant_power)
+    - allumé avec la [couleur rouge] {"entity": "etat_voyant_power", "value": "rouge"}
+- intent: marqueModem
+  examples: |
+    - la marque de mon modéme [sagem](marque)
+    - mon modéme est [tp-link](marque)
+    - le modèle de mon modem est [huawei](marque)
+    - [dlink](marque)
+    - [huawei](marque)
+    - un modem [d link]{"entity": "marque", "value": "dlink"}
+    - modem [thomson](marque)
+    - c la marque [huawei](marque)
+    - c'est un modem [tp link]{"entity": "marque", "value": "tp-link"}
+- intent: wifi
+  examples: |
+    - le wifi n'est pas affiché
+    - mon wifi ne fonctionne pas
+    - wifi ne marche pas
+    - plus de wifi
+    - wifi désactivé
+    - probléme de wifi
+    - comment récupérer le wifi?
+    - pas de wifi
+    - wifi ne fonction plus
+    - connexion Wi-Fi qui disparaît complètement
+    - probléme wifi
+- intent: deny
+  examples: |
+    - nooo
+    - nop
+    - non
+    - jamais
+    - ce n'est pas ça
+    - pas du tout
+    - nn
+    - je ne crois pas
+    - neh
+    - absolument pas
+    - nope
+    - pas vraiment
+- intent: pas_de_connexion
+  examples: |
+    - pas de réseau Internet
+    - plus de connexion
+    - pas d'internet
+    - je n'est pas de connexion internet
+    - je n'est plus d'internet
+    - la connexion est coupée
+    - ma connexion internet adsl ne marche pas
+    - l'internet ne matche plus
+    - pas de connexion
+    - je n'ai plus de connexion
+    - no connexion
+    - connexion coupé
+- intent: micro_coupure
+  examples: |
+    - Une connexion qui défaille en permanence
+    - ma connexion est souvant interrompue
+    - connexion instable
+    - Coupures internet régulières
+    - des micros coupure d'internet
+    - j'ai un probléme de micro-coupur
+    - probléme de mini-coupure de connexion
+    - le réseau internet coupe souvant
+    - plusieurs déconnexion d'internet
+    - déconnexion multiple d'internet
+    - j'ai des micro-coupures
+    - une connexion avec mini coupure
+    - l'internet coupe souvant
+    - mini coupure du réseau Internet
+    - internet instable
+    - j'ai plusieurs coupures de connexion fréquament
+- intent: affirm
+  examples: |
+    - si
+    - yap
+    - évidemment
+    - effectivement
+    - c'est ça
+    - ah ok
+    - yep
+    - done
+    - yeah
+    - yes
+    - absolument
+    - exactement
+    - wi
+    - yah
+    - k
+    - yesss
+    - oui
+    - okk
+- intent: inform
+  examples: |
+    - mon numéro de téléphone est [71396171] (phone_number)
+    - [1 site] {"entity": "number_site", "value": "un seul site"}
+    - [tous les appareils]{"entity": "number_appareil", "value": "plusieurs appareils"}
+    - [plusieurs sites](number_site)
+    - [tous les sites]{"entity": "number_site", "value": "plusieurs sites"}
+    - [71623005] (phone_number)
+    - [un seul]{"entity": "number_appareil", "value": "un seul appareil"}
+    - [un site] {"entity": "number_site", "value": "un seul site"}
+    - [plusieur appareil]{"entity": "number_appareil", "value": "plusieurs appareils"}
+    - tél [71623005] (phone_number)
+    - voila mon num [71623005] (phone_number)
+    - [tout les sites] sont lents {"entity": "number_site", "value": "plusieurs sites"}
+    - [1 appareil]{"entity": "number_appareil", "value": "un seul appareil"}
+    - mon num adsl est [71654789] (phone_number)
+    - [plusieurs appareils](number_appareil)
+    - [plusieur site] {"entity": "number_site", "value": "plusieurs sites"}
+    - c'est mon numéro [71623005] (phone_number)
+    - [un seul site] est lent{"entity": "number_site", "value": "un seul site"}
+- intent: lenteur
+  examples: |
+    - j'au un probléme de lenteur d'internet
+    - débit non stable
+    - lenteur de site internet
+    - ralentissements
+    - la connexion buge
+    - comment corriger le lenteur d'internet?
+    - un débit de chargement anormalement lent
+    - connexion en ralentie
+    - la connexion est trés faible
+    - débit internet instable
+    - Un débit internet lent
+    - lenteur du chargement des pages
+    - débit de chargement trés faible
+    - lenteur de connexion internet
+    - j'ai un ralentissement au niveau de la connexion
+    - faible réseau
+    - débit faible
+    - impossible d'accéder aux sites
+    - les sites marche en ralenti
+    - j'ai un faible débit
+    - lente connexion
+    - les sites sont lents
+    - connexion tres lente
+- synonym: plusieurs sites
+  examples: |
+    - tous les sites
+    - plusieurs
+- synonym: un seul appareil
+  examples: |
+    - un seul
+    - 1 appareil
+- synonym: plusieurs appareils
+  examples: |
+    - plusieur appareil
+    - tous les appareils
+- synonym: tp-link
+  examples: |
+    - tp link
+- synonym: dlink
+  examples: |
+    - d link
+- synonym: épéteur wifi
+  examples: |
+    - repeteur wifi
+    - répéteur wifi
+- synonym: un seul
+  examples: |
+    - uniquement 1
+    - 1
+- synonym: micro-coupures
+  examples: |
+    - micro coupure
+    - mini coupure
+    - mini_coupure
+    - fréquente
+    - instable
+- synonym: interrompue
+  examples: |
+    - coupé
+    - pas de connexion
+- regex: phone_number
+  examples: |
+    - ^[7]\d{7}

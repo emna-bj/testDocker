@@ -1,0 +1,57 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say welcom anytime the user says thank
+  steps:
+  - intent: thank
+  - action: utter_welcom
+
+- rule: check phone_number anytime user add phone
+  steps:
+  - action: utter_ask_phone
+  - intent: inform
+    entities:
+    - phone_number: '71498380'
+  - slot_was_set:
+    - phone_number: '71498380'
+  - action: action_check_phone
+
+- rule: solution every time user affirm parasite
+  steps:
+  - action: utter_ask_parasite
+  - intent: affirm
+  - action: utter_affirm_parasite
+  - action: utter_ask_prb_regle
+
+- rule: solution every time user deny parasite
+  steps:
+  - action: utter_ask_parasite
+  - intent: deny
+  - action: utter_deny_parasite 
+  - action: utter_ask_prb_regle
+
+
+- rule: Implementation of the Two-Stage-Fallback
+  steps:
+  - intent: nlu_fallback
+  - action: action_two_stage_fallback
+  - active_loop: action_two_stage_fallback
+  
+- rule : save reclamation every time user deny prb regle
+  steps:
+  - action: utter_ask_prb_regle
+  - intent: deny
+  - action: action_reclamation_enregistre
+
+- rule : say welcom every time user affirm prb regle
+  steps:
+  - action: utter_ask_prb_regle
+  - intent: affirm
+  - action: utter_welcom
+  

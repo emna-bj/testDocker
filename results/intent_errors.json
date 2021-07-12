@@ -1,0 +1,10 @@
+[
+  {
+    "text": "j'ai la tonalité sur mon téléphone fixe",
+    "intent": "affirm_tonalite",
+    "intent_prediction": {
+      "name": "deny_tonalite",
+      "confidence": 0.8723510503768921
+    }
+  }
+]

@@ -1,0 +1,131 @@
+version: "2.0"
+nlu:
+- intent: problemeAutres
+  examples: |
+    - j'ai un autre probléme
+- intent: problemeCommercial
+  examples: |
+    - offres commerciales
+- intent: coupure
+  examples: |
+    - un probléme de coupure de connexion
+- intent: affirm_tonalite
+  examples: |
+    - j'ai la tonalité sur mon téléphone fixe
+- intent: deny_tonalite
+  examples: |
+    - la tonalité ne fonctionne plus
+    - téléphone ne fonctionne pas
+- intent: thank
+  examples: |
+    - c bon
+    - good
+- intent: problemeTechnique
+  examples: |
+    - déclaration problème technique
+- intent: affirm_parasite
+  examples: |
+    - Bruits sur la ligne
+    - ligne parasitée
+- intent: Typeequipement
+  examples: |
+    - c'est un [épéteur wifi](equipement)
+    - l'équipement que j'utilise est un [modem](equipement)
+- intent: goodbye
+  examples: |
+    - a+
+    - à trés vite
+- intent: greet
+  examples: |
+    - salut
+    - hey
+- intent: etat_voyant
+  examples: |
+    - le bouton power est en [rouge] {"entity": "etat_voyant_power", "value": "rouge"}
+    - [vert} {"entity": "etat_voyant_power", "value": "vert"}
+- intent: marqueModem
+  examples: |
+    - j'ai un modem [dlink](marque)
+    - [sagem](marque)
+    - mon modem est [huawei](marque)
+- intent: wifi
+  examples: |
+    - wifi ne s'affiche pas
+    - j'ai un probléme de wifi
+- intent: deny
+  examples: |
+    - no
+    - nah
+    - no!
+- intent: pas_de_connexion
+  examples: |
+    - aucune connexion internet
+    - connexion inexistante
+    - no internet
+    - la connexion ne marche plus
+- intent: micro_coupure
+  examples: |
+    - micro coupure de connexion internet
+    - j'ai souvent des mini-coupure
+    - micros coupures fréquentes
+    - déconnexion fréquente d'internet
+- intent: affirm
+  examples: |
+    - certainement
+    - ok
+    - surement
+    - totalement
+- intent: inform
+  examples: |
+    - [71984874](phone_number)
+    - [71498380](phone_number)
+    - numero tél [71623005] (phone_number)
+    - [un seul appareil](number_appareil)
+    - c mon num [71623005] (phone_number)
+- intent: lenteur
+  examples: |
+    - pfaible connexion
+    - téléchargement lent
+    - le chargement des sites est lent
+    - impossibilité de se connecter à certains sites
+    - comment tester le débit internet?
+- synonym: plusieurs sites
+  examples: |
+    - tous les sites
+    - plusieurs
+- synonym: un seul appareil
+  examples: |
+    - un seul
+    - 1 appareil
+- synonym: plusieurs appareils
+  examples: |
+    - plusieur appareil
+    - tous les appareils
+- synonym: tp-link
+  examples: |
+    - tp link
+- synonym: dlink
+  examples: |
+    - d link
+- synonym: épéteur wifi
+  examples: |
+    - repeteur wifi
+    - répéteur wifi
+- synonym: un seul
+  examples: |
+    - uniquement 1
+    - 1
+- synonym: micro-coupures
+  examples: |
+    - micro coupure
+    - mini coupure
+    - mini_coupure
+    - fréquente
+    - instable
+- synonym: interrompue
+  examples: |
+    - coupé
+    - pas de connexion
+- regex: phone_number
+  examples: |
+    - ^[7]\d{7}

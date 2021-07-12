@@ -56,7 +56,7 @@ class TestLenteurAction(Action):
         elif number_site=="plusieurs sites":
             dispatcher.utter_message(template="utter_ask_test_appareil") 
             return []
-           
+#            
 
 class ConfigAction(Action):
     def name(self) -> Text:
@@ -78,7 +78,21 @@ class ConfigAction(Action):
         return[]
 
 
+class WifiAction(Action):
+    def name(self) -> Text:
+        return "action_prb_wifi"
 
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        equipement = tracker.get_slot('equipement')
+        if equipement=="modem":
+            dispatcher.utter_message(template="utter_ask_marque_modem") 
+            return []
+        elif (equipement=="répéteur wifi" or equipement=="point daccès"):
+            dispatcher.utter_message(template="utter_solution_wifi_pointacces")
+            dispatcher.utter_message(template="utter_ask_prb_regle")
+            return []
 
 
 class CoupureAction(Action):
