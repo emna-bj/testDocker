@@ -1,0 +1,21 @@
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Docker login
+      run:  |
+        docker login -u emnabj -p emna 2020
+    - name: Build and push Docker image
+      run: docker build -t emnabj/action-server:v1 .
+    - name: Docker push
