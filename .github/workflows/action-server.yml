@@ -18,6 +18,6 @@ jobs:
       run:  |
         docker login -u emnabj-p emna 2020
     - name: Build and push Docker image
-      run: docker build -t emnabj/rasa-sdk-app:v0 .
+      run: docker build . -t emnabj/rasa-sdk-app:v0 
     - name: Docker push
       run: docker push emnabj/rasa-sdk-app:v0
