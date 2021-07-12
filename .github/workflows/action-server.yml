@@ -14,7 +14,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
-        dockerfile: Dockerfile
+        dockerfile: actions/Dockerfile
     - name: Docker login
       run:  |
         docker login -u emnabj-p emna 2020
