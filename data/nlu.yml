@@ -9,6 +9,7 @@ nlu:
     - coucou
     - hey
     - cc
+    - bonjouuuuuuuur
     - bjr
     - bon jour
     - slt
@@ -24,6 +25,7 @@ nlu:
     - à plus
     - a+
     - trés bientot
+    - à trés bientot
     - à la prochaine
     - à trés vite
 - intent: affirm
