@@ -4,6 +4,6 @@ WORKDIR /app
 
 USER root
 
-COPY . /app/actions
+COPY ./actions  /app/actions
 
 USER 1001
