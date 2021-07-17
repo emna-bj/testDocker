@@ -10,8 +10,5 @@ services:
       - run
   action-server:
     image: emnabj/rasa-sdk:rasa-sdkv1 
-    ports:
-      - 5055:5055
-    volumes:
-      - ./actions:/app
-    entrypoint: "entrypoint.sh"
+    expose: 5055
+  
