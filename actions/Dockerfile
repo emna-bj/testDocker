@@ -4,10 +4,13 @@ USER root
 
 WORKDIR /app
 
-COPY . /app
-RUN pip install -r requirements.txt
+COPY actions.py /app
+
+COPY requirements.txt /app
 
 RUN ls -l
+
+RUN pip install -r requirements.txt
 
 USER 1001
 
