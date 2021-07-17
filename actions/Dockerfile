@@ -4,8 +4,10 @@ USER root
 
 WORKDIR /app
 
-COPY . /app
-
-RUN pip3 install -r requirements.txt
+COPY actions/actions.py /app/actions
+COPY actions /app/actions
+RUN ls -l
 
 USER 1001
+
+CMD ["start","--actions", "actions.actions"]
