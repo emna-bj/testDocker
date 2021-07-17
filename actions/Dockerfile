@@ -12,7 +12,7 @@ COPY actions/requirements.txt /app
 RUN ls -l
 
 RUN pip install -r requirements.txt
-
+ENTRYPOINT ["test.sh"]
 USER 1001
 
 CMD ["start","--actions", "actions.actions"]
