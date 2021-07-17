@@ -14,4 +14,4 @@ RUN ls -l
 RUN pip install -r requirements.txt
 USER 1001
 
-CMD ["start","--actions", "actions.actions"]
+CMD ["start","--actions", "actions"]
