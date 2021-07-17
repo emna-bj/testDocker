@@ -36,5 +36,5 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
         dockerfile: Dockerfile
-        repository: emnabj/rasa-sdk
+        repository: emnabj/rasa-server
         tags: rasa-serverv1
