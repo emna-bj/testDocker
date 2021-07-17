@@ -4,7 +4,7 @@ USER root
 
 WORKDIR /app
 
-COPY actions.py /app
+COPY action.py /app
 
 COPY requirements.txt /app
 
