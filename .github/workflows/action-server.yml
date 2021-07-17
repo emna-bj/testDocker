@@ -19,7 +19,8 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
         dockerfile: actions/Dockerfile
-        tags: rasa-sdkv0
+        repository: emnabj/rasa-sdk
+        tags: rasa-sdkv1
 
       
   build-rasa-server:
@@ -35,4 +36,5 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
         dockerfile: Dockerfile
-        tags: rasa-serverv0
+        repository: emnabj/rasa-sdk
+        tags: rasa-serverv1
