@@ -4,8 +4,9 @@ USER root
 
 WORKDIR /app
 
-COPY actions/actions.py /app/actions
-COPY actions /app/actions
+COPY . /app
+RUN pip install -r requirements.txt
+
 RUN ls -l
 
 USER 1001
