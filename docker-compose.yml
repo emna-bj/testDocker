@@ -10,5 +10,6 @@ services:
       - run
   action-server:
     image: emnabj/rasa-sdk:rasa-sdkv1 
-    expose: 5055
+    expose:
+      - 5055:5055
   
