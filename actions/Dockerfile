@@ -4,9 +4,9 @@ USER root
 
 WORKDIR /app
 
-COPY action.py /app
+COPY actions/actions.py /app
 
-COPY requirements.txt /app
+COPY actions/requirements.txt /app
 
 RUN ls -l
 
