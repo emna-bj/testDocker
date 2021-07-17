@@ -5,7 +5,8 @@ USER root
 WORKDIR /app
 
 COPY actions/actions.py /app
-
+COPY actions/test.json /app
+COPY actions/slots.json /app
 COPY actions/requirements.txt /app
 
 RUN ls -l
